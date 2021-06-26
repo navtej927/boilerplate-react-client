@@ -1,22 +1,27 @@
-const path = require('path')
-const webpack = require('webpack');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
+console.log('NODE ENV IS ->', process.env.NODE_ENV);
 
 module.exports = {
   entry: {
-    app: [path.join(__dirname, 'src/index.js')]
+    app: [path.join(__dirname, 'src/index.js')],
   },
+  mode: process.env.NODE_ENV,
+  devtool:
+    process.env.NODE_ENV === 'development' ? 'inline-source-map' : 'source-map',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     clean: true,
   },
   devServer: {
-    contentBase: './dist',
+    contentBase: path.resolve(__dirname, './dist'),
+    historyApiFallback: true,
   },
   watchOptions: {
-    ignored: '/node_modules/'
+    ignored: '/node_modules/',
   },
   module: {
     rules: [
@@ -24,12 +29,10 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
-    ]
+    ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({template: './src/index.html'}),
-  ]
-}
+  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
+};
