@@ -8,8 +8,12 @@ module.exports = {
     app: [path.join(__dirname, 'src/index.js')]
   },
   output: {
-    path: path.join(__dirname, './dist'),
-    filename: 'index.bundle.js',
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
+  devServer: {
+    contentBase: './dist',
   },
   watchOptions: {
     ignored: '/node_modules/'
@@ -26,6 +30,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({}),
+    new HtmlWebpackPlugin({template: './src/index.html'}),
   ]
 }
