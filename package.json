@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --open",
+    "dev": "webpack serve  --hot --inline --open",
     "build": "webpack --mode production",
     "profile": "webpack --mode development --profile --json > stats.json && webpack-bundle-analyzer ./stats.json",
     "test": "echo \"Error: no test specified\" && exit 1"

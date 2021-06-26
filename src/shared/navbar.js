@@ -10,5 +10,5 @@ export const Navbar = () => {
       console.log("error");
     }
   }, [])
-  return (<h1>NAV</h1>)
+  return (<h1>Nsss</h1>)
 }
