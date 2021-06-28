@@ -14,7 +14,8 @@
     "docker:build": "docker build -t boilerplate-react-client .",
     "docker:dev": "docker run -v ${PWD}/src:/app/src -e CHOKIDAR_USEPOLLING=true -p 8080:8080 --name BP_REACT_CLIENT boilerplate-react-client",
     "docker:run": "docker run -p 8080:8080 --name BP_REACT_CLIENT boilerplate-react-client",
-    "docker:bash": "docker exec -it BP_REACT_CLIENT bash"
+    "docker:bash": "docker exec -it BP_REACT_CLIENT bash",
+    "liteServer": "npx lite-server --baseDir='dist'"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "eslint-plugin-react": "^7.24.0",
     "html-webpack-plugin": "^5.3.2",
     "jest": "^27.0.5",
+    "lite-server": "^2.6.1",
     "prettier": "^2.3.2",
     "webpack": "^5.40.0",
     "webpack-bundle-analyzer": "^4.4.2",

@@ -1,9 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 export const Home = () => {
-  useEffect(() => {
-    console.log('hello');
-  }, []);
-
   return <div>Home</div>;
 };
