@@ -18,6 +18,7 @@
     "plugin:jest/recommended",
     "plugin:jest/style",
     "plugin:jest-dom/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
